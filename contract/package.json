@@ -1,0 +1,21 @@
+{
+  "name": "contract",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "hardhat compile && npm run copy-abi && npm run clean-deploy && npm run deploy",
+    "copy-abi": "node -e \"const fs = require('fs'); const json = JSON.parse(fs.readFileSync('artifacts/contracts/DrugRegistry.sol/DrugRegistry.json')); fs.writeFileSync('../client/src/utils/DrugRegistry_ABI.json', JSON.stringify(json.abi, null, 2)); console.log('✅ ABI copied to frontend!');\"",
+    "clean-deploy": "rm -rf ignition/deployments/chain-31337",
+    "deploy": "npm run clean-deploy && hardhat ignition deploy ignition/modules/DrugRegistry.ts --network localhost"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "hardhat": "^2.22.5",
+    "prettier": "^3.3.2"
+  }
+}

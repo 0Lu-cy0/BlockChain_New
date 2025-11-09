@@ -1,0 +1,7 @@
+✅ TÓM TẮT:
+Bước	                Lệnh	                                                                            Giải thích
+1. Sửa contract	      vim DrugRegistry.sol	                                                            Sửa code Solidity
+2. Compile + Copy ABI	npm run compile	                                                                  1 lệnh duy nhất!
+3. Deploy lại	        npx hardhat ignition deploy ignition/modules/DrugRegistry.ts --network localhost	Deploy contract mới
+4. Cập nhật address	  Sửa constants.js	                                                                Nếu address đổi
+5. Refresh web	      F5	                                                                              React reload
