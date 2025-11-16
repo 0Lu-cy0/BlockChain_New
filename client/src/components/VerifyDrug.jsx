@@ -77,43 +77,125 @@ const VerifyDrug = () => {
           <h3>📦 Thông Tin Thuốc</h3>
 
           <div className="info-card">
-            <div className="info-row">
-              <span className="label">Tên thuốc:</span>
-              <span className="value">{drugInfo.name}</span>
+            {/* Thông tin cơ bản */}
+            <div className="info-section">
+              <h4>📋 Thông tin cơ bản</h4>
+              <div className="info-row">
+                <span className="label">Tên thuốc:</span>
+                <span className="value">{drugInfo.name}</span>
+              </div>
+
+              <div className="info-row">
+                <span className="label">Mã thuốc:</span>
+                <span className="value drug-id">{drugInfo.drugId}</span>
+              </div>
+
+              <div className="info-row">
+                <span className="label">Số đăng ký:</span>
+                <span className="value">{drugInfo.registrationNumber}</span>
+              </div>
+
+              <div className="info-row">
+                <span className="label">Số lô:</span>
+                <span className="value">{drugInfo.batchNumber}</span>
+              </div>
             </div>
 
-            <div className="info-row">
-              <span className="label">Mã thuốc:</span>
-              <span className="value drug-id">{drugInfo.drugId}</span>
+            {/* Thành phần & Quy cách */}
+            {(drugInfo.activeIngredient || drugInfo.concentration || drugInfo.dosageForm || drugInfo.packaging) && (
+              <div className="info-section">
+                <h4>💊 Thành phần & Quy cách</h4>
+                {drugInfo.activeIngredient && (
+                  <div className="info-row">
+                    <span className="label">Hoạt chất:</span>
+                    <span className="value">{drugInfo.activeIngredient}</span>
+                  </div>
+                )}
+
+                {drugInfo.concentration && (
+                  <div className="info-row">
+                    <span className="label">Hàm lượng:</span>
+                    <span className="value">{drugInfo.concentration}</span>
+                  </div>
+                )}
+
+                {drugInfo.dosageForm && (
+                  <div className="info-row">
+                    <span className="label">Dạng bào chế:</span>
+                    <span className="value">{drugInfo.dosageForm}</span>
+                  </div>
+                )}
+
+                {drugInfo.packaging && (
+                  <div className="info-row">
+                    <span className="label">Quy cách đóng gói:</span>
+                    <span className="value">{drugInfo.packaging}</span>
+                  </div>
+                )}
+
+                {drugInfo.quantity > 0 && (
+                  <div className="info-row">
+                    <span className="label">Số lượng (đơn vị):</span>
+                    <span className="value">{drugInfo.quantity.toLocaleString()}</span>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* Nguồn gốc */}
+            <div className="info-section">
+              <h4>🏭 Nguồn gốc</h4>
+              <div className="info-row">
+                <span className="label">Tên nhà sản xuất:</span>
+                <span className="value">{drugInfo.manufacturerName}</span>
+              </div>
+
+              <div className="info-row">
+                <span className="label">Địa chỉ ví nhà sản xuất:</span>
+                <span className="value address" title={drugInfo.manufacturer}>
+                  {formatAddress(drugInfo.manufacturer)}
+                </span>
+              </div>
+
+              {drugInfo.distributorName && (
+                <div className="info-row">
+                  <span className="label">Nhà phân phối:</span>
+                  <span className="value">{drugInfo.distributorName}</span>
+                </div>
+              )}
+
+              {drugInfo.originCountry && (
+                <div className="info-row">
+                  <span className="label">Xuất xứ:</span>
+                  <span className="value">{drugInfo.originCountry}</span>
+                </div>
+              )}
             </div>
 
-            <div className="info-row">
-              <span className="label">Số lô:</span>
-              <span className="value">{drugInfo.batchNumber}</span>
-            </div>
+            {/* Thời gian */}
+            <div className="info-section">
+              <h4>📅 Thời gian</h4>
+              <div className="info-row">
+                <span className="label">Ngày sản xuất:</span>
+                <span className="value">{formatDate(drugInfo.manufactureDate)}</span>
+              </div>
 
-            <div className="info-row">
-              <span className="label">Ngày sản xuất:</span>
-              <span className="value">{formatDate(drugInfo.manufactureDate)}</span>
-            </div>
+              <div className="info-row">
+                <span className="label">Hạn sử dụng:</span>
+                <span className="value">{formatDate(drugInfo.expiryDate)}</span>
+              </div>
 
-            <div className="info-row">
-              <span className="label">Hạn sử dụng:</span>
-              <span className="value">{formatDate(drugInfo.expiryDate)}</span>
-            </div>
+              <div className="info-row">
+                <span className="label">Ngày đăng ký blockchain:</span>
+                <span className="value">{formatDate(drugInfo.registeredAt)}</span>
+              </div>
 
-            <div className="info-row">
-              <span className="label">Nhà sản xuất:</span>
-              <span className="value address" title={drugInfo.manufacturer}>
-                {formatAddress(drugInfo.manufacturer)}
-              </span>
-            </div>
-
-            <div className="info-row status">
-              <span className="label">Trạng thái:</span>
-              <span className={`value ${drugInfo.isExpired ? "expired" : "valid"}`}>
-                {drugInfo.isExpired ? "⚠️ Đã hết hạn" : "✅ Còn hạn sử dụng"}
-              </span>
+              <div className="info-row status">
+                <span className="label">Trạng thái:</span>
+                <span className={`value ${drugInfo.isExpired ? "expired" : "valid"}`}>
+                  {drugInfo.isExpired ? "⚠️ Đã hết hạn" : "✅ Còn hạn sử dụng"}
+                </span>
+              </div>
             </div>
           </div>
 

@@ -116,23 +116,88 @@ function AllDrugs({ account }) {
             </div>
 
             <div className="drug-card-body">
+              {/* Thông tin cơ bản */}
               <div className="drug-field">
                 <span className="label">Mã thuốc:</span>
                 <span className="value drug-id">{drug.drugId}</span>
               </div>
+
+              {drug.registrationNumber && (
+                <div className="drug-field">
+                  <span className="label">Số đăng ký:</span>
+                  <span className="value">{drug.registrationNumber}</span>
+                </div>
+              )}
 
               <div className="drug-field">
                 <span className="label">Số lô:</span>
                 <span className="value">{drug.batchNumber}</span>
               </div>
 
+              {/* Thành phần & Quy cách */}
+              {drug.activeIngredient && (
+                <div className="drug-field">
+                  <span className="label">Hoạt chất:</span>
+                  <span className="value">{drug.activeIngredient}</span>
+                </div>
+              )}
+
+              {drug.concentration && (
+                <div className="drug-field">
+                  <span className="label">Hàm lượng:</span>
+                  <span className="value">{drug.concentration}</span>
+                </div>
+              )}
+
+              {drug.dosageForm && (
+                <div className="drug-field">
+                  <span className="label">Dạng bào chế:</span>
+                  <span className="value">{drug.dosageForm}</span>
+                </div>
+              )}
+
+              {drug.packaging && (
+                <div className="drug-field">
+                  <span className="label">Quy cách:</span>
+                  <span className="value">{drug.packaging}</span>
+                </div>
+              )}
+
+              {drug.quantity > 0 && (
+                <div className="drug-field">
+                  <span className="label">Số lượng:</span>
+                  <span className="value">{Number(drug.quantity).toLocaleString()}</span>
+                </div>
+              )}
+
+              {/* Nguồn gốc */}
               <div className="drug-field">
-                <span className="label">Nhà sản xuất:</span>
+                <span className="label">Tên nhà sản xuất:</span>
+                <span className="value">{drug.manufacturerName || "N/A"}</span>
+              </div>
+
+              <div className="drug-field">
+                <span className="label">Địa chỉ ví:</span>
                 <span className="value address" title={drug.manufacturer}>
                   {formatAddress(drug.manufacturer)}
                 </span>
               </div>
 
+              {drug.distributorName && (
+                <div className="drug-field">
+                  <span className="label">Nhà phân phối:</span>
+                  <span className="value">{drug.distributorName}</span>
+                </div>
+              )}
+
+              {drug.originCountry && (
+                <div className="drug-field">
+                  <span className="label">Xuất xứ:</span>
+                  <span className="value">{drug.originCountry}</span>
+                </div>
+              )}
+
+              {/* Thời gian */}
               <div className="drug-field">
                 <span className="label">Ngày sản xuất:</span>
                 <span className="value">{formatDate(drug.manufactureDate)}</span>
@@ -142,6 +207,13 @@ function AllDrugs({ account }) {
                 <span className="label">Hạn sử dụng:</span>
                 <span className="value">{formatDate(drug.expiryDate)}</span>
               </div>
+
+              {drug.registeredAt && (
+                <div className="drug-field">
+                  <span className="label">Đăng ký blockchain:</span>
+                  <span className="value">{formatDate(drug.registeredAt)}</span>
+                </div>
+              )}
             </div>
           </div>
         ))}

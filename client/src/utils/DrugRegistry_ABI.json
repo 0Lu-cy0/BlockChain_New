@@ -9,9 +9,21 @@
         "type": "string"
       },
       {
+        "indexed": true,
+        "internalType": "string",
+        "name": "registrationNumber",
+        "type": "string"
+      },
+      {
         "indexed": false,
         "internalType": "string",
         "name": "name",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "manufacturerName",
         "type": "string"
       },
       {
@@ -77,7 +89,57 @@
       },
       {
         "internalType": "string",
+        "name": "registrationNumber",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
         "name": "batchNumber",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "activeIngredient",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "concentration",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "dosageForm",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "packaging",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "quantity",
+        "type": "uint256"
+      },
+      {
+        "internalType": "string",
+        "name": "manufacturerName",
+        "type": "string"
+      },
+      {
+        "internalType": "address",
+        "name": "manufacturer",
+        "type": "address"
+      },
+      {
+        "internalType": "string",
+        "name": "distributorName",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "originCountry",
         "type": "string"
       },
       {
@@ -91,9 +153,9 @@
         "type": "uint256"
       },
       {
-        "internalType": "address",
-        "name": "manufacturer",
-        "type": "address"
+        "internalType": "uint256",
+        "name": "registeredAt",
+        "type": "uint256"
       },
       {
         "internalType": "bool",
@@ -128,7 +190,57 @@
           },
           {
             "internalType": "string",
+            "name": "registrationNumber",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
             "name": "batchNumber",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "activeIngredient",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "concentration",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "dosageForm",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "packaging",
+            "type": "string"
+          },
+          {
+            "internalType": "uint256",
+            "name": "quantity",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "manufacturerName",
+            "type": "string"
+          },
+          {
+            "internalType": "address",
+            "name": "manufacturer",
+            "type": "address"
+          },
+          {
+            "internalType": "string",
+            "name": "distributorName",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "originCountry",
             "type": "string"
           },
           {
@@ -142,9 +254,9 @@
             "type": "uint256"
           },
           {
-            "internalType": "address",
-            "name": "manufacturer",
-            "type": "address"
+            "internalType": "uint256",
+            "name": "registeredAt",
+            "type": "uint256"
           },
           {
             "internalType": "bool",
@@ -255,7 +367,52 @@
       },
       {
         "internalType": "string",
+        "name": "_registrationNumber",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
         "name": "_batchNumber",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_activeIngredient",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_concentration",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_dosageForm",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_packaging",
+        "type": "string"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_quantity",
+        "type": "uint256"
+      },
+      {
+        "internalType": "string",
+        "name": "_manufacturerName",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_distributorName",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "_originCountry",
         "type": "string"
       },
       {

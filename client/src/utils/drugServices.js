@@ -53,16 +53,41 @@ export const registerDrug = async (drugData) => {
     throw new Error("Contract not initialized");
   }
 
-  const { name, drugId, batchNumber, manufactureDate, expiryDate } = drugData;
+  const {
+    name,
+    drugId,
+    registrationNumber,
+    batchNumber,
+    activeIngredient,
+    concentration,
+    dosageForm,
+    packaging,
+    quantity,
+    manufacturerName,
+    distributorName,
+    originCountry,
+    manufactureDate,
+    expiryDate
+  } = drugData;
 
   // Convert dates to Unix timestamp
   const manufactureTimestamp = Math.floor(new Date(manufactureDate).getTime() / 1000);
   const expiryTimestamp = Math.floor(new Date(expiryDate).getTime() / 1000);
 
+  // Contract nhận 14 tham số
   const tx = await contract.registerDrug(
     name,
     drugId,
+    registrationNumber,
     batchNumber,
+    activeIngredient || "",
+    concentration || "",
+    dosageForm || "",
+    packaging || "",
+    quantity ? parseInt(quantity) : 0,
+    manufacturerName,
+    distributorName || "",
+    originCountry || "",
     manufactureTimestamp,
     expiryTimestamp
   );
@@ -79,14 +104,24 @@ export const getDrug = async (drugId) => {
 
   const drug = await contract.getDrug(drugId);
 
-  // Convert struct to object
+  // Convert struct to object with all new fields
   return {
     name: drug.name,
     drugId: drug.drugId,
+    registrationNumber: drug.registrationNumber,
     batchNumber: drug.batchNumber,
+    activeIngredient: drug.activeIngredient,
+    concentration: drug.concentration,
+    dosageForm: drug.dosageForm,
+    packaging: drug.packaging,
+    quantity: Number(drug.quantity),
+    manufacturerName: drug.manufacturerName,
+    manufacturer: drug.manufacturer,
+    distributorName: drug.distributorName,
+    originCountry: drug.originCountry,
     manufactureDate: Number(drug.manufactureDate),
     expiryDate: Number(drug.expiryDate),
-    manufacturer: drug.manufacturer,
+    registeredAt: Number(drug.registeredAt),
     exists: drug.exists,
   };
 };

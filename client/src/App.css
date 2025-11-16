@@ -229,6 +229,29 @@ input {
   cursor: not-allowed;
 }
 
+.form-group small {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+/* Fieldset styling for grouped form sections */
+fieldset {
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  background: #f8f9fa;
+}
+
+fieldset legend {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #667eea;
+  padding: 0 0.5rem;
+}
+
 button[type="submit"] {
   width: 100%;
   background: #667eea;
@@ -268,6 +291,24 @@ button[type="submit"]:disabled {
   padding: 1.5rem;
   border-radius: 10px;
   border: 2px solid #e0e0e0;
+}
+
+.info-section {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.info-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.info-section h4 {
+  color: #667eea;
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 .info-row {

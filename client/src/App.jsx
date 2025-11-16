@@ -60,7 +60,6 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>💊 Hệ thống truy xuất nguồn gốc thuốc</h1>
         <ConnectWalletButton account={account} setAccount={setAccount} />
       </header>
 
